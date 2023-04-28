@@ -36,7 +36,7 @@ const Details= ({datas}) => {
     return (
       <div className="grid h-screen place-items-center bg-slate-300">
         <div className="">
-           <button className="bg-blue-400 px-1 py-2"><Link href={'/fetch/Fetch'}>Back to Quotes</Link></button> 
+           <button className="bg-blue-400 px-1 py-2"><Link href={'/'}>Back to Quotes</Link></button> 
            <h1>This page is About {datas.name}</h1>
            <div className="font-bold py-10">
              <p>{datas.email}</p>
