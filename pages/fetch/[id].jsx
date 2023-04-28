@@ -1,8 +1,9 @@
-// import { useRouter } from "next/router"
-
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../Cart.Slice";
 
 export const getStaticPaths = async()=>{
+
   const response = await fetch ('https://dummyjson.com/products');
   await new Promise((resolve)=> setTimeout(resolve,1000))
   const data = await response.json();
@@ -32,9 +33,9 @@ export const getStaticProps = async(context)=>{
 }
 
 const Details= ({datas}) => {
-    // const router=useRouter()
-    // const id=router.query.id
-  
+
+    const dispatch = useDispatch();
+   
     return (
       <div className="grid h-screen place-items-center bg-slate-300">
         <div className="">
@@ -45,7 +46,9 @@ const Details= ({datas}) => {
            </div>
         </div>
         <div className="flex gap-20">
-           <div onClick={""}>add to cart</div>
+       
+           <div onClick={() => dispatch(addToCart(datas))}>add to cart </div>
+
            <div>add to Favourite</div>
         </div>
         
