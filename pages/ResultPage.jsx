@@ -7,8 +7,8 @@ export default function ResultPage({datas}) {
                      <Link href={`/fetch/`+data.id} key={data.id}>
                         <div className="m-4">
                             <div>{data.id} </div> 
-                            <div className="font-bold pt-2"> {data.name}</div> 
-                            <div>{data.email}</div> 
+                            <div className="font-bold pt-2"> {data.title}</div> 
+                            <div>{data.category}</div> 
                         </div>
                      </Link>
                 </div>

@@ -5,8 +5,9 @@ import ResultPage from '../ResultPage';
 
 export async function getServerSideProps({keyword}) {
   // Fetch data from external API
-  const res = await fetch(`https://jsonplaceholder.typicode.com/comments`)
-  const data = await res.json()
+  const res = await fetch(`https://dummyjson.com/products`)
+  const datas=await res.json()
+  const data = datas.products
 
   return { props: { data } }
 }
@@ -21,7 +22,7 @@ export default function SearchedPage ({data}) {
     console.log(searcedData, "results of searched file")
    
     const filterdBysearch = (searcedData) => {
-      return searcedData.filter(item => item.name.toLowerCase().includes(keyword.toLowerCase() )|| item.email.toLowerCase().includes(keyword.toLowerCase())
+      return searcedData.filter(item => item.title.toLowerCase().includes(keyword.toLowerCase() )|| item.category.toLowerCase().includes(keyword.toLowerCase())
       )}
 
      const datas= filterdBysearch(searcedData)

@@ -4,10 +4,11 @@ import ResultPage from "./ResultPage";
 
 
 export async function getServerSideProps(){
-  const response=await fetch ('https://jsonplaceholder.typicode.com/comments');
+  const response=await fetch ('https://dummyjson.com/products');
   await new Promise((resolve)=> setTimeout(resolve,1000))
 
-  const datas= await response.json()
+  const data= await response.json()
+  const datas= data.products
 
 
   return {
