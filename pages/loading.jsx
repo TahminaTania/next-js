@@ -5,4 +5,4 @@ function LoadingPage() {
   )
 }
 
-export default loading
+export default LoadingPage
