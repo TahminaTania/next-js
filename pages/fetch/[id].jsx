@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../Cart.Slice";
+import SingleData from "./SingleData";
 
 export const getStaticPaths = async()=>{
 
@@ -37,21 +38,24 @@ const Details= ({datas}) => {
     const dispatch = useDispatch();
    
     return (
-      <div className="grid h-screen place-items-center bg-slate-300">
-        <div className="">
-           <button className="bg-blue-400 px-1 py-2"><Link href={'/'}>Back to Home</Link></button> 
-           <h1>This page is About {datas.title}</h1>
-           <div className="font-bold py-10">
-             <p>{datas.id}</p>
-           </div>
-        </div>
-        <div className="flex gap-20">
-       
-           <div onClick={() => dispatch(addToCart(datas))}>add to cart </div>
-
-           <div>add to Favourite</div>
-        </div>
-        
+      <div className="grid  place-items-center bg-slate-300">
+          <div className="">
+            <h1 className="text-3xl text-center p-10">This page is About <span className="font-bold">{datas.title}</span></h1>
+            <SingleData datas={datas}/>
+            <div><span className="font-bold">Price: </span>{datas.price}/- <span className="text-red-500">({datas.discountPercentage}%-)</span></div>
+            <div className="py-5">
+               <div><span className="font-bold">Description: </span>{datas.description}</div>
+               <div><span className="font-bold">Rating: </span>{datas.rating}</div>
+               <div><span className="font-bold">Stock: </span>{datas.stock}</div>
+               <div><span className="font-bold">Brand: </span>{datas.brand}</div>
+               <div><span className="font-bold">Category: </span>{datas.category}</div>
+            </div>
+            <div className="flex justify-around py-10">
+              <button className="bg-green-400 px-3 py-2" onClick={() => dispatch(addToCart(datas))}>add to cart </button>
+              <button className="bg-yellow-400 px-3 py-2">add to Favourite</button>
+              <button className="bg-blue-400 px-3 py-2"><Link href={'/'}>Back to Home</Link></button> 
+            </div>
+         </div>
       </div>
     )
   }
