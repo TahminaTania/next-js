@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { incrementQuantity,decrementQuantity,removeFromCart } from '../Cart.Slice';
+import { incrementQuantity,decrementQuantity,removeFromCart } from '../CartSlice';
 
 export default function CartPage() {
 

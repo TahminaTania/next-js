@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../Cart.Slice";
+import { addToCart } from "../CartSlice";
 import SingleData from "./SingleData";
 
 export const getStaticPaths = async()=>{
