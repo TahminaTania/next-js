@@ -4,7 +4,7 @@ import ResultPage from "./ResultPage";
 
 
 export async function getServerSideProps(){
-  const response=await fetch ('https://dummyjson.com/products');
+  const response=await fetch ('https:/dummyjson.com/products');
   await new Promise((resolve)=> setTimeout(resolve,1000))
 
   const data= await response.json()
