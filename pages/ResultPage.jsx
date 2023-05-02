@@ -1,14 +1,27 @@
 import Link from "next/link"
+import Image from 'next/image'
+
+const myLoader = ({ src, width, quality }) => {
+  return `https://example.com/${src}?w=${width}&q=${quality || 75}`
+}
+
 export default function ResultPage({datas}) {
   return (
-    <div>ResultPage:
+    <section className="">
+      <h1>ResultPage:</h1>
+      <div className="xsm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mx-auto py-4">
          { (datas.length!==0)? (datas.map((data)=>(
-                <div className="bg-gray-400 mx-20 my-3 h-[100px] ">
+                <div className="">
                      <Link href={`/fetch/`+data.id} key={data.id}>
-                        <div className="m-4">
-                            <div>{data.id} </div> 
-                            <div className="font-bold pt-2"> {data.title}</div> 
-                            <div>{data.category}</div> 
+                        <div className="cursor-pointer xsm:p-3 xsm:hover:shadow-slate-400 xsm:shadow-md rounded-lg xsm:border xsm:border-slate-400 xsm:m-2 transition-shadow duration-200 group">
+                            <div className="sm:rounded-t-lg group-hover:opacity-80 transition-opacity duration-200">  
+                               <img src={data.thumbnail} className="w-[500px] h-[400px] object-fill"></img>
+                            </div>
+                            <div className="p-2">
+                              <div className="font-bold pt-2"> {data.title}</div>
+                              <div className="line-clamp-1 text-md">{data.description} </div>  
+                              <div className="truncate text-lg font-bold py-2">{data.category}</div> 
+                            </div>
                         </div>
                      </Link>
                 </div>
@@ -19,6 +32,7 @@ export default function ResultPage({datas}) {
                  )
     
             }
-    </div>
+        </div>
+    </section>
   )
 }

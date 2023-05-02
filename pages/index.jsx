@@ -22,12 +22,12 @@ export async function getServerSideProps(){
 function Home({datas}) {
   // console.log(datas,"data")
   return (
-    <main className="h-full ">
+    <main className="">
        <h1>    This is Home</h1>
        
-     <div className="flex flex-col items-center justify-center p-20">
+     <div className=" bg-white">
 
-    <ResultPage datas={datas}/>
+         <ResultPage datas={datas}/>
 
    
      </div>
